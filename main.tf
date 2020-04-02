@@ -33,7 +33,7 @@ resource "ibm_is_instance" "instance1" {
   vpc  = "${ibm_is_vpc.vpc1.id}"
   zone = "${var.zone1}"
   keys = ["${data.ibm_is_ssh_key.sshkey1.id}"]
-  user_data = "${data.local_file.config}"
+  user_data = "${data.local_file.config.content}"
   #user_data = "${data.template_cloudinit_config.cloud-init-apptier.rendered}"
 }
 
