@@ -67,7 +67,6 @@ resource "ibm_is_security_group_rule" "sg1_tcp_rule_80" {
 
 data "local_file" "config" {
   filename = "${path.module}/cloud-init.txt"
-  #depends_on = [null_resource.import]
 }
 
 output "FloatingIP-1" {
