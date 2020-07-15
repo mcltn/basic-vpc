@@ -23,7 +23,8 @@ resource "ibm_is_subnet" "subnet1" {
 }
 
 resource "ibm_is_instance" "instance1" {
-  name    = "instance1"
+  count = "${var.instance_count}"
+  name    = "instance-${count.index+1}"
   image   = "${var.image}"
   profile = "${var.profile}"
 
@@ -38,7 +39,8 @@ resource "ibm_is_instance" "instance1" {
 }
 
 resource "ibm_is_floating_ip" "floatingip1" {
-  name = "fip1"
+  count = "${ibm_is_instance.instance1.count}"
+  name = "fip-${count.index}"
   target = "${ibm_is_instance.instance1.primary_network_interface.0.id}"
 }
 

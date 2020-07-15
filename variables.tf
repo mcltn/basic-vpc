@@ -18,6 +18,11 @@ variable "zone1_cidr" {
   description = "CIDR block to be used for zone 1"
 }
 
+variable "instance_count" {
+  default = "2"
+  description = "Number of instances to provision in zone"
+}
+
 variable "ssh_key_name" {
   default = "mcltn-ssh-key"
   description = "Name of existing VPC SSH Key"
