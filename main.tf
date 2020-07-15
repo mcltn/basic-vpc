@@ -72,5 +72,5 @@ data "local_file" "config" {
 }
 
 output "FloatingIP-1" {
-    value = "${ibm_is_floating_ip.floatingip1.address}"
+    value = "${ibm_is_floating_ip.floatingip1.*.address}"
 }
