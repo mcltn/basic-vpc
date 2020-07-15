@@ -45,7 +45,7 @@ resource "ibm_is_floating_ip" "floatingip1" {
 }
 
 resource "ibm_is_security_group_rule" "sg1_tcp_rule_22" {
-  depends_on = ["ibm_is_floating_ip.floatingip1"]
+  #depends_on = ["ibm_is_floating_ip.floatingip1"]
   group     = "${ibm_is_vpc.vpc1.default_security_group}"
   direction = "inbound"
   remote    = "0.0.0.0/0"
@@ -56,7 +56,7 @@ resource "ibm_is_security_group_rule" "sg1_tcp_rule_22" {
 }
 
 resource "ibm_is_security_group_rule" "sg1_tcp_rule_80" {
-  depends_on = ["ibm_is_floating_ip.floatingip1"]
+  #depends_on = ["ibm_is_floating_ip.floatingip1"]
   group     = "${ibm_is_vpc.vpc1.default_security_group}"
   direction = "inbound"
   remote    = "0.0.0.0/0"
