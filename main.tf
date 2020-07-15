@@ -41,7 +41,7 @@ resource "ibm_is_instance" "instance1" {
 resource "ibm_is_floating_ip" "floatingip1" {
   count = "${ibm_is_instance.instance1.count}"
   name = "fip-${count.index}"
-  target = "${ibm_is_instance.instance1.*.primary_network_interface.0.id}"
+  target = "${element(ibm_is_instance.instance1.*.primary_network_interface.0.id, count.index)}"
 }
 
 resource "ibm_is_security_group_rule" "sg1_tcp_rule_22" {
